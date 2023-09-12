@@ -3,6 +3,7 @@ const express = require("express")
 const cors = require("cors")
 const cookieSession = require("cookie-session")
 const userRouter = require("./src/user/user.router")
+const productRouter = require("./src/product/product.router")
 
 const app = express()
 const CLIENT_URL = "http://localhost:5173"
@@ -26,5 +27,6 @@ app.use(
 
 //Routes
 app.use("/api/users", userRouter)
+app.use("/api/products", productRouter)
 
 app.listen(3000, () => console.log("Server is up and running..."))
