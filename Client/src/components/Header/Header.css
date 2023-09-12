@@ -21,3 +21,14 @@ a {
     gap: 2em;
     margin-right: 2rem;
 }
+
+.header-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.header-login > p {
+    font-size: 1.2rem;
+}

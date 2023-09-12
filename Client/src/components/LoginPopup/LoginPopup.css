@@ -1,0 +1,43 @@
+.login-popup {
+    position: absolute;
+    top: 20rem;
+    right: 10rem;
+    background-color: aqua;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-popup > h1 {
+    margin-bottom: 2rem;
+}
+
+.login-popup > p {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-form input,
+.register-form input {
+    border: none;
+    padding: 0.3rem;
+}
+
+.login-form button,
+.register-form button {
+    border: none;
+    padding: 0.3rem;
+    width: 5rem;
+    cursor: pointer;
+}
