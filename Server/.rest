@@ -7,7 +7,6 @@ Content-Type: application/json
     "password": "12345"
 }
 ###
-
 POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
@@ -15,3 +14,5 @@ Content-Type: application/json
     "username": "Andre",
     "password": "12345"
 }
+###
+POST http://localhost:3000/api/users/logout
