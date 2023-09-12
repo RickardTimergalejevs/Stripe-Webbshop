@@ -20,7 +20,7 @@ const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10)
         newUser.password = hashedPassword
 
-        //Read users json
+        //Reading users json
         const usersData = await fs.promises.readFile(usersFilePath, "utf8")
         if (!usersData) {
             return res.status(500).json("Error reading user data");
@@ -38,7 +38,7 @@ const register = async (req, res) => {
             name: username
         })
 
-        //Add id to new customer
+        //Add id to new customer from stripe
         newUser = { ...newUser, id: customer.id }
 
         //Push new customer to users json
@@ -50,12 +50,40 @@ const register = async (req, res) => {
     }
 }
 
-const login = async () => {
+const login = async (req, res) => {
+    try {
+        const { username, password } = req.body
 
+        //Reading users json
+        const usersData = await fs.promises.readFile(usersFilePath, "utf8")
+        if (!usersData) {
+            return res.status(500).json("Error reading user data");
+        }
+        const users = JSON.parse(usersData)
+
+        //Check existing customer
+        const existingUser = users.find((user) => user.username === username)
+
+        if (!existingUser) {
+            return res.status(500).json({ message: "User not found" })
+        }
+
+        //Check crypt password
+        const passwordCheck = await bcrypt.compare(password, existingUser.password)
+
+        if (!passwordCheck) {
+            return res.status(500).json({ message: "Incorrect password"})
+        }
+
+        req.session = existingUser
+        res.status(200).json(existingUser)
+    } catch(error) {
+        res.status(500).json({ error: error.message })
+    }
 }
 
 const logout = async () => {
 
 }
 
-module.exports = { register }
+module.exports = { register, login }
