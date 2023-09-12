@@ -1,0 +1,15 @@
+.product-card {
+    background-color: gray;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    gap: 20px;
+} 
+
+img {
+    width: 200px;
+}
