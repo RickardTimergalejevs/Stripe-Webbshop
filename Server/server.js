@@ -14,6 +14,6 @@ app.use(
 )
 app.use(express.json())
 
-app.post()
+//app.post()
 
 app.listen(3000, () => console.log("Server is up and running..."))

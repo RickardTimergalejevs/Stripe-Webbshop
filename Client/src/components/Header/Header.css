@@ -1,0 +1,23 @@
+header {
+    background-color: lightblue;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a { 
+    text-decoration: none;
+    color: black;
+}
+
+.title {
+    margin-left: 2rem;
+}
+
+.header-icons {
+    display: flex;
+    font-size: 1.8rem;
+    gap: 2em;
+    margin-right: 2rem;
+}
