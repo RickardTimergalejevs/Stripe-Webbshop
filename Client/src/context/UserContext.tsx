@@ -18,6 +18,8 @@ export const useUserContext = () => useContext(UserContext)
 
 const UserProvider = ({ children }: PropsWithChildren) => {
     const [user, setUser] = useState<IUser | null>(null)
+    console.log(user);
+    
 
     useEffect(() => {
         const authorize = async () => {
@@ -62,10 +64,22 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             throw new Error("Login failed: " + error.message);
         }
     }
+    
+    const logout = async () => {
+        try {
+            await axios.post("http://localhost:3000/api/users/logout", null, {
+                withCredentials: true
+            })
+            setUser(null)
+            console.log("Logout successful!");
+        } catch (error: any) {
+            throw new Error("Logout failed: " + error.message);
+        }
+    }
 
     return (
         <div>
-            <UserContext.Provider value={{ login, user }}>
+            <UserContext.Provider value={{ login, logout, user }}>
                 {children}
             </UserContext.Provider>
         </div>
