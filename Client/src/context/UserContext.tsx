@@ -19,6 +19,24 @@ export const useUserContext = () => useContext(UserContext)
 const UserProvider = ({ children }: PropsWithChildren) => {
     const [user, setUser] = useState<IUser | null>(null)
 
+    useEffect(() => {
+        const authorize = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/api/users/authorize", {
+                    withCredentials: true
+                })
+
+            if (response.status === 200) {
+                setUser(response.data)
+            }
+            } catch (error: any) {
+                throw new Error("Authorize failed: " + error.message);
+            }
+        }
+
+        authorize()
+    }, [])
+
     const login = async (credentials: ILoginForm) => {
         try {
             const { username, password } = credentials

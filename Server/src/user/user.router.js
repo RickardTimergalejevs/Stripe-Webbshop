@@ -6,6 +6,6 @@ const userRouter = express
 .post("/register", register)
 .post("/login", login)
 .post("/logout", logout)
-.post("/authorize", authorize)
+.get("/authorize", authorize)
 
 module.exports = userRouter

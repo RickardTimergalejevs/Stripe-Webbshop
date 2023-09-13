@@ -3,8 +3,15 @@ import { Link } from "react-router-dom"
 import { IoCartSharp } from "react-icons/io5"
 import { FaUserCircle } from "react-icons/fa"
 import LoginPopup from "../LoginPopup/LoginPopup"
+import { useUserContext } from "../../context/UserContext"
 
 const Header = () => {
+  const { user } = useUserContext()
+
+  const handleClick = () => {
+    
+  }
+
   return (
     <header>
       <Link to={"/"}>
@@ -14,7 +21,7 @@ const Header = () => {
       <div className="header-icons">
         <div className="header-login">
           <FaUserCircle />
-          <p>Login</p>
+          {user ? <p >Logout</p> : <p>Login</p>}
         </div>
         <div className="header-cart">
         <Link to={"/cart"}>
