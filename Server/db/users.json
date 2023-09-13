@@ -4,5 +4,11 @@
     "username": "Andre",
     "password": "$2b$10$Yw3iNABYWPEJv5LR8fb4Suf8sbWwnwNL1LC.RojnDL42q8SuBwLfa",
     "id": "cus_Ocl1Cnb08f47j9"
+  },
+  {
+    "email": "test@test.se",
+    "username": "Gregory",
+    "password": "$2b$10$FLmk15s7vAwpPT2.xLL6Gu6ZdKcJnx7tLjqy5Tg2dr/PwGpivIecC",
+    "id": "cus_Od7buafHaKq8up"
   }
 ]

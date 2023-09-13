@@ -12,6 +12,12 @@ interface ILoginForm {
     password: string
 }
 
+interface IRegisterForm {
+    email: string,
+    username: string,
+    password: string
+}
+
 const UserContext = createContext(null as any)
 
 export const useUserContext = () => useContext(UserContext)
@@ -64,6 +70,31 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             throw new Error("Login failed: " + error.message);
         }
     }
+
+    const register = async (registerData: IRegisterForm) => {
+        try {
+            const { email, username, password } = registerData
+            
+            const response = await axios.post("http://localhost:3000/api/users/register", {
+                email,
+                username,
+                password
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+
+            if (response.status === 201) {
+                console.log(response.data);
+                console.log("Registration successful");
+            } else {
+                throw new Error("Registration failed with status: " + response.status);
+            }
+        } catch (error: any) {
+            throw new Error("Registration failed: " + error.message);
+        }
+    }
     
     const logout = async () => {
         try {
@@ -79,7 +110,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
     return (
         <div>
-            <UserContext.Provider value={{ login, logout, user }}>
+            <UserContext.Provider value={{ login, logout, register, user }}>
                 {children}
             </UserContext.Provider>
         </div>
