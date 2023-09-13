@@ -22,13 +22,14 @@ a {
     margin-right: 2rem;
 }
 
-.header-login {
+.header-login, .header-cart {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
 }
 
-.header-login > p {
+.header-login p,
+.header-cart p {
     font-size: 1.2rem;
 }

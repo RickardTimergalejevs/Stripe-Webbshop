@@ -16,9 +16,12 @@ const Header = () => {
           <FaUserCircle />
           <p>Login</p>
         </div>
+        <div className="header-cart">
         <Link to={"/cart"}>
           <IoCartSharp />
         </Link>
+          <p>Cart</p>
+        </div>
       </div>
     </header>
   )
