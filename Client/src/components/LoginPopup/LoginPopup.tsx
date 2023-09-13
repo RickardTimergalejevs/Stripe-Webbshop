@@ -14,7 +14,7 @@ const LoginPopup = () => {
       password: ""
     })
 
-    const { login, register, user } = useUserContext()
+    const { login, register } = useUserContext()
     
     const handleInputLoginFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target
