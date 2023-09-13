@@ -10,5 +10,11 @@
     "username": "Gregory",
     "password": "$2b$10$FLmk15s7vAwpPT2.xLL6Gu6ZdKcJnx7tLjqy5Tg2dr/PwGpivIecC",
     "id": "cus_Od7buafHaKq8up"
+  },
+  {
+    "email": "max39@test.com",
+    "username": "Max",
+    "password": "$2b$10$2p0EYXvR3InFMl66q3PMk.sgMVHDfMgl.QDZSNkn1P59kFUTOX92C",
+    "id": "cus_Od8urMqqkMdUti"
   }
 ]

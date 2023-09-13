@@ -26,22 +26,21 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     const [user, setUser] = useState<IUser | null>(null)
     console.log(user);
     
+    const authorize = async () => {
+        try {
+            const response = await axios.get("api/users/authorize", {
+                withCredentials: true
+            })
+
+        if (response.status === 200) {
+            setUser(response.data)
+        }
+        } catch (error: any) {
+            throw new Error("Authorize failed: " + error.message);
+        }
+    }
 
     useEffect(() => {
-        const authorize = async () => {
-            try {
-                const response = await axios.get("http://localhost:3000/api/users/authorize", {
-                    withCredentials: true
-                })
-
-            if (response.status === 200) {
-                setUser(response.data)
-            }
-            } catch (error: any) {
-                throw new Error("Authorize failed: " + error.message);
-            }
-        }
-
         authorize()
     }, [])
 
@@ -49,7 +48,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
         try {
             const { username, password } = credentials
             
-            const response = await axios.post("http://localhost:3000/api/users/login", {
+            const response = await axios.post("api/users/login", {
                 username,
                 password
             }, {
@@ -75,7 +74,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
         try {
             const { email, username, password } = registerData
             
-            const response = await axios.post("http://localhost:3000/api/users/register", {
+            const response = await axios.post("api/users/register", {
                 email,
                 username,
                 password
@@ -98,7 +97,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
     
     const logout = async () => {
         try {
-            await axios.post("http://localhost:3000/api/users/logout", null, {
+            await axios.post("api/users/logout", null, {
                 withCredentials: true
             })
             setUser(null)
