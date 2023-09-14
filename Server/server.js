@@ -4,9 +4,10 @@ const cors = require("cors")
 const cookieSession = require("cookie-session")
 const userRouter = require("./src/user/user.router")
 const productRouter = require("./src/product/product.router")
+const checkoutRouter = require("./src/checkout/checkout.router")
 
 const app = express()
-const CLIENT_URL = "http://localhost:5173"
+const CLIENT_URL = process.env.CLIENT_URL
 
 //Middlewares
 app.use(
@@ -30,5 +31,6 @@ app.use(
 //Routes
 app.use("/api/users", userRouter)
 app.use("/api/products", productRouter)
+app.use("/api/checkout", checkoutRouter)
 
 app.listen(3000, () => console.log("Server is up and running..."))
