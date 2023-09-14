@@ -14,7 +14,7 @@ const createCheckoutSession = async (req, res) => {
                         name: "Test",
                         description: "Bla bla bla..."
                     },
-                    unit_amout: "24900"
+                    unit_amount: "24900"
                 },
                 quantity: 2
             }],
