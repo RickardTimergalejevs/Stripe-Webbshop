@@ -20,6 +20,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
         if (existingCartItemIndex !== -1) {
             const updatedCartItems = [...cartItems]
             updatedCartItems[existingCartItemIndex].quantity += 1
+            setCartItems(updatedCartItems)
         } else {
             const newCartItem: ICartItem = {
                 product,
