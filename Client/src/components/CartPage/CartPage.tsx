@@ -21,7 +21,8 @@ const CartPage = () => {
       return
     }
 
-    const { url } = await response.json()
+    const { url, sessionId } = await response.json()
+    localStorage.setItem("session-id", sessionId)
     window.location = url
   } 
 
