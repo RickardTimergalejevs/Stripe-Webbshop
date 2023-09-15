@@ -5,11 +5,14 @@ import { FaUserCircle } from "react-icons/fa"
 import LoginPopup from "../LoginPopup/LoginPopup"
 import { useUserContext } from "../../context/UserContext"
 import { useState } from "react"
+import { ICartItem, useCartContext } from "../../context/CartContext"
 
 const Header = () => {
   const { user, logout } = useUserContext()
+  const { cartItems } = useCartContext()
   const [loginPopupOpen, setLoginPopupOpen] = useState(false)
 
+  const totalQuantity = cartItems.reduce((total: number, item: ICartItem ) => total + item.quantity, 0);
 
   const handleClick = () => {
     logout()
@@ -35,6 +38,7 @@ const Header = () => {
         <div className="header-cart">
         <Link to={"/cart"}>
           <IoCartSharp />
+          <div className="cart-total-quantity">{totalQuantity}</div>
         </Link>
           <p>Cart</p>
         </div>

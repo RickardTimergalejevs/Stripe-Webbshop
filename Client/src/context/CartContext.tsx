@@ -2,7 +2,7 @@ import { PropsWithChildren, createContext, useContext, useState } from "react"
 import useLocalStorage from "../hooks/useLocalStorage"
 import { IProduct } from "./ProductContext"
 
-interface ICartItem {
+export interface ICartItem {
     product: IProduct,
     quantity: number
 }
@@ -31,7 +31,7 @@ const CartProvider = ({ children }: PropsWithChildren) => {
 
     return (
         <div>
-            <CartContext.Provider value={{ addToCart }}>
+            <CartContext.Provider value={{ cartItems, addToCart }}>
                 {children}
             </CartContext.Provider>
         </div>

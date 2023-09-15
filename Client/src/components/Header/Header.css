@@ -32,5 +32,15 @@ a {
 
 .header-login p,
 .header-cart p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.cart-total-quantity {
+    background-color: aqua;
+    position: absolute;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.2rem;
+    top: 1px;
+    right: 30px;
 }
