@@ -1,18 +1,20 @@
 import { ICartItem, useCartContext } from "../../context/CartContext"
+import { useUserContext } from "../../context/UserContext"
 import { formatPrice, totalPrice } from "../../utils/helpers"
 import "./CartPage.css"
 
 const CartPage = () => {
 
-  const { cartItems } = useCartContext()
+  const { cartItems, setCartItems } = useCartContext()
+  const { user } = useUserContext()
 
   const handlePayment = async () => {
-    const response = await fetch("http://localhost:3000/api/checkout/create-session", {
+    const response = await fetch("api/checkout/create-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({})
+      body: JSON.stringify({ cartItems, user: user?.id })
     })
 
     if (!response.ok) {

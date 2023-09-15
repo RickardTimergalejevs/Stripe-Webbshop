@@ -6,18 +6,16 @@ const CLIENT_URL = process.env.CLIENT_URL
 
 const createCheckoutSession = async (req, res) => {
     try {
+        const { cartItems, user } = req.body
+
         const session = await stripe.checkout.sessions.create({
-            line_items: [{
-                price_data: {
-                    currency: "sek",
-                    product_data: {
-                        name: "Test",
-                        description: "Bla bla bla..."
-                    },
-                    unit_amount: "24900"
-                },
-                quantity: 2
-            }],
+            line_items: cartItems.map((item) => {
+                return {
+                    price: item.product.default_price.id,
+                    quantity: item.quantity
+                }
+            }),
+            customer: user,
             mode: "payment",
             success_url: `${CLIENT_URL}/confirmation`,
             cancel_url: CLIENT_URL,

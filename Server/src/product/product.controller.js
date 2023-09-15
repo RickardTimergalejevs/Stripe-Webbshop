@@ -16,6 +16,7 @@ const getAllProducts = async (req, res) => {
             id: product.id,
             name: product.name,
             price: product.default_price.unit_amount,
+            default_price: product.default_price,
             image: product.images,
             description: product.description
         }))
