@@ -14,6 +14,10 @@ const ConfirmationPage = () => {
         body: JSON.stringify({ sessionId })
       })
 
+      if (!response.ok) {
+        throw new Error("Failed to fetch data from the server");
+      }
+
       const { verified } = await response.json()
 
       if (verified) {
@@ -23,7 +27,7 @@ const ConfirmationPage = () => {
         setIsPaymentVerified(false)
       }
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
     }
   } 
 
