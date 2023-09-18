@@ -3,9 +3,9 @@ import "./Main.css"
 
 const Main = () => {
   return (
-    <div>
+    <main>
       <ProductList />
-    </div>
+    </main>
   )
 }
 

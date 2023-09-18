@@ -14,9 +14,9 @@ const ProductCard = ({ product }: Props) => {
     <div className="product-card">
         <h1>{product.name}</h1>
         <img src={product.image} alt={product.name} />
-        <p>{product.description}</p>
+        <p className="product-description">{product.description}</p>
         <h2>{formatPrice(product.price)} kr</h2>
-        <button onClick={() => addToCart(product, 1)}>Lägg till cart</button>
+        <button className="product-btn" onClick={() => addToCart(product, 1)}>Lägg till cart</button>
     </div>
   )
 }

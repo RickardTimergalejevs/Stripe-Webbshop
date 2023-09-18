@@ -1,7 +1,20 @@
+.product-wrapper {
+    font-family: 'Bebas Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-list-title {
+    padding: 4rem 0;
+    font-size: 3rem;
+}
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 10rem 5rem 0;
+    padding: 0 5rem;
 }
