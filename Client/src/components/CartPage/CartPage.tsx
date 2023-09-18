@@ -44,6 +44,10 @@ const CartPage = () => {
             <img src={item.product.image} alt={item.product.name} className="cart-product-card-img" />
             <h2>{formatPrice(item.product.price)} kr</h2>
             <p>Quantity: {item.quantity}</p>
+            <div className="cart-product-btns">
+              <button>Deacrease</button>
+              <button>Increase</button>
+            </div>
           </div>
         ))}
       </div>

@@ -62,3 +62,18 @@
 .register-form button:hover {
     background-color: rgb(183, 160, 226);
 }
+
+@media (max-width: 811px) {
+    .login-popup {
+        top: 14rem;
+        right: 4rem;
+        background-color: rgb(183, 160, 226);
+        height: 320px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-top: solid 10px rgb(255, 223, 119);
+    }
+  }

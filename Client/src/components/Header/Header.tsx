@@ -2,7 +2,7 @@ import "./Header.css"
 import { Link } from "react-router-dom"
 import { IoCartSharp } from "react-icons/io5"
 import { FaUserCircle } from "react-icons/fa"
-import { RiProfileFill } from "react-icons/ri"
+import { RiProfileFill, RiLogoutBoxRFill } from "react-icons/ri"
 import LoginPopup from "../LoginPopup/LoginPopup"
 import { useUserContext } from "../../context/UserContext"
 import { useState } from "react"
@@ -39,7 +39,7 @@ const Header = () => {
           </Link>}
         </div>
         <div className="header-login" onClick={toggleLoginPopup}>
-          {!user ? <FaUserCircle onClick={toggleLoginPopup} className="header-username" /> : <p className="header-username">{user.username}</p> }
+          {!user ? <FaUserCircle onClick={toggleLoginPopup} className="header-login-icon" /> : <RiLogoutBoxRFill className="header-login-icon" /> }
           {user ? <p onClick={handleClick}>Logout</p> : <p>Login</p>}
         </div>
         <div className="header-cart">

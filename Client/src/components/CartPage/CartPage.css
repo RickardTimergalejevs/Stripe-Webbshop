@@ -56,3 +56,8 @@
 .checkout-btn:hover {
     background-color: rgb(183, 160, 226);
 }
+
+.cart-product-btns {
+    display: flex;
+    gap: 20px;
+}
