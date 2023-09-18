@@ -20,6 +20,7 @@ const createCheckoutSession = async (req, res) => {
             }),
             customer: user,
             mode: "payment",
+            allow_promotion_codes: true,
             success_url: `${CLIENT_URL}/confirmation`,
             cancel_url: CLIENT_URL,
         })
