@@ -1,46 +1,68 @@
 header {
-    background-color: rgb(218, 166, 132);
-    height: 5rem;
+    background-color: rgb(183, 160, 226);
+    min-height: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 a { 
     text-decoration: none;
-    color: black;
+    color: black
 }
 
 .title {
     margin-left: 2rem;
+    color: rgb(255, 223, 119);
+    font-family: 'Monoton', cursive;
+    font-weight: 100;
+    font-size: 4rem;
 }
 
 .header-icons {
     display: flex;
-    font-size: 1.8rem;
-    gap: 2em;
-    margin-right: 2rem;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    gap: 1em;
+    margin: 1rem;
 }
 
-.header-login, .header-cart {
+.header-username {
+    margin-bottom: 0.4rem;
+}
+
+.header-cart {
+    position: relative;
+}
+
+.header-login, .header-cart, .header-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
     cursor: pointer;
+    width: 100px;
 }
 
 .header-login p,
-.header-cart p {
+.header-cart p,
+.header-profile p {
     font-size: 1.3rem;
 }
 
 .cart-total-quantity {
-    background-color: aqua;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 223, 119);
     position: absolute;
     font-size: 1rem;
     border-radius: 10px;
     padding: 0.2rem;
-    top: 1px;
+    top: -9px;
     right: 30px;
+    padding-top: 1px;
 }

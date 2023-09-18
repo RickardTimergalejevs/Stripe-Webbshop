@@ -39,15 +39,15 @@ const Header = () => {
           </Link>}
         </div>
         <div className="header-login" onClick={toggleLoginPopup}>
-          {!user ? <FaUserCircle onClick={toggleLoginPopup} /> : <p>Hi, {user.username}!</p> }
+          {!user ? <FaUserCircle onClick={toggleLoginPopup} className="header-username" /> : <p className="header-username">{user.username}</p> }
           {user ? <p onClick={handleClick}>Logout</p> : <p>Login</p>}
         </div>
         <div className="header-cart">
         <Link to={"/cart"}>
           <IoCartSharp />
           <div className="cart-total-quantity">{totalQuantity}</div>
-        </Link>
           <p>Cart</p>
+        </Link>
         </div>
       </div>
     </header>
