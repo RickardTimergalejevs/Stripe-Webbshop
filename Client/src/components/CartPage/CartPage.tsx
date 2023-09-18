@@ -34,21 +34,23 @@ const CartPage = () => {
   } 
 
   return (
-    <div>
-      <div className="cart-product-list">
-      {cartItems.map((item) => (
-        <div key={item.product.id} className="cart-product-card">
-          <h1>{item.product.name}</h1>
-          <img src={item.product.image} alt={item.product.name} />
-          <p>{formatPrice(item.product.price)} kr</p>
-          <p>Quantity: {item.quantity}</p>
-        </div>
-      ))}
-    </div>
-    <h2>Total products: {cartItems.length}</h2>
-    <p>Total price: {totalPrice(cartItems)} kr</p>
-      <button onClick={handlePayment}>Buy</button>
-    </div>
+    <main>
+      <div className="cart-wrapper">
+        <h1 className="cart-title">Cart</h1>
+        <div className="cart-product-list">
+        {cartItems.map((item) => (
+          <div key={item.product.id} className="cart-product-card">
+            <h1>{item.product.name}</h1>
+            <img src={item.product.image} alt={item.product.name} className="cart-product-card-img" />
+            <h2>{formatPrice(item.product.price)} kr</h2>
+            <p>Quantity: {item.quantity}</p>
+          </div>
+        ))}
+      </div>
+      <h2 className="cart-total-price">Total price: {totalPrice(cartItems)} kr</h2>
+        <button className="checkout-btn" onClick={handlePayment}>To checkout</button>
+      </div>
+    </main>
   )
 }
 

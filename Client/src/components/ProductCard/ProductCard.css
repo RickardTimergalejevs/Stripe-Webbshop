@@ -10,7 +10,7 @@
     border-top: solid 10px rgb(255, 223, 119);
 } 
 
-img {
+.product-card-img {
     width: 250px;
     border-radius: 10px;
 }
