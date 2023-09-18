@@ -3,6 +3,7 @@ import ConfirmationPage from './components/ConfirmationPage/ConfirmationPage'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
 import { Route, Routes } from "react-router-dom"
+import ProfilePage from './components/ProfilePage/ProfilePage'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Main />} />
+        <Route path='/profile' element={<ProfilePage/>} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/confirmation' element={<ConfirmationPage />} />
       </Routes>

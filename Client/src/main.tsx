@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom"
 import ProductProvider from './context/ProductContext.tsx'
 import UserProvider from './context/UserContext.tsx'
 import CartProvider from './context/CartContext.tsx'
+import OrderProvider from './context/OrderContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <UserProvider>
         <ProductProvider>
           <CartProvider>
-            <App />
+            <OrderProvider>
+              <App />
+            </OrderProvider>
           </CartProvider>
         </ProductProvider>
       </UserProvider>
