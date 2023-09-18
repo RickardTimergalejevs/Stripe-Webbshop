@@ -15,3 +15,10 @@ export function totalPrice(cartItems: ICartItem[]) {
 
     return formatPrice(total);
 }
+
+export function formatDate(orderDate: number) {
+    const date = new Date(orderDate * 1000);
+    const fullDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    const fullTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+    return `${fullDate} ${fullTime}`;
+}
