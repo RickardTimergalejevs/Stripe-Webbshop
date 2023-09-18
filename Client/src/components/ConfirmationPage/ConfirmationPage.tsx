@@ -23,8 +23,8 @@ const ConfirmationPage = () => {
             <div>
               {order.products.map((item) => (
                 <div key={item.product_id}>
-                  <h2>{item.product_name}</h2>
-                  <img src={item.image} alt={item.product_name} />
+                  <h2>{item.product}</h2>
+                  <img src={item.image} alt={item.product} />
                   <p>Price: {formatPrice(item.total_price)} kr</p>
                   <p>Quantity: {item.quantity}</p>
                 </div>

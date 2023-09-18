@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, PropsWithChildren } from "react"
+import { useState, useContext, useEffect, createContext, PropsWithChildren } from "react"
 import axios from "axios"
 
 interface IOrder {
@@ -11,7 +11,7 @@ interface IOrder {
     products: [
       {
         product_id: string,
-        product_name: string,
+        product: string,
         image: string,
         price: number,
         quantity: number,
@@ -19,16 +19,34 @@ interface IOrder {
       }
     ],
     order_total_price: number
-  }
+}
 
-const OrderContext = createContext(null as any)
+interface IOrderContext {
+    order: IOrder | null,
+    orders: IOrder[] | null, 
+    isPaymentVerified: boolean,
+    setIsPaymentVerified: React.Dispatch<React.SetStateAction<boolean>>,
+    verifyPayment: () => Promise<void>,
+    getOrders: () => Promise<void>
+}
+
+const OrderContext = createContext<IOrderContext>({
+    order: null,
+    orders: null,
+    isPaymentVerified: false,
+    setIsPaymentVerified: () => {},
+    verifyPayment: async () => {},
+    getOrders: async () => {}
+})
 
 export const useOrderContext = () => useContext(OrderContext)
 
 const OrderProvider = ({ children }: PropsWithChildren) => {
 const [isPaymentVerified, setIsPaymentVerified] = useState(false)
   const [order, setOrder] = useState<IOrder | null>(null)
+  const [orders, setOrders] = useState<IOrder[] | null> (null)
   console.log("order cart", order);
+  console.log("User orders", orders);
 
   const verifyPayment = async () => {
     try {
@@ -57,9 +75,25 @@ const [isPaymentVerified, setIsPaymentVerified] = useState(false)
     }
   } 
 
+  const getOrders = async () => {
+    try {
+        const response = await axios.get("api/orders", {
+            withCredentials: true
+        })
+
+        if (response.status === 200) {
+            setOrders(response.data)
+        }
+
+    } catch (error: any) {
+        console.error(error);
+    }
+  }
+  
+
     return (
         <div>
-            <OrderContext.Provider value={{ verifyPayment, isPaymentVerified, setIsPaymentVerified, order }}>
+            <OrderContext.Provider value={{ verifyPayment, isPaymentVerified, setIsPaymentVerified, order, getOrders, orders }}>
                 {children}
             </OrderContext.Provider>
         </div>

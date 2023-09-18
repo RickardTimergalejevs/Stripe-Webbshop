@@ -17,7 +17,7 @@ const getOrders = async (req, res) => {
         const customerId = req.session.id
         const userOrders = orders.filter((order) => order.customer.customer_id === customerId)
 
-        res.status(200).json ({ userOrders })
+        res.status(200).json (userOrders)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
