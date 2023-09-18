@@ -1,0 +1,41 @@
+.user-profile-wrapper {
+    font-family: 'Bebas Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem 5rem;
+}
+
+.user-profile-title {
+    margin: 4rem 0;
+    font-size: 3rem;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.order-card {
+    background-color: rgb(183, 160, 226);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: solid 10px rgb(255, 223, 119);
+}
+
+.order-img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.order-product-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}

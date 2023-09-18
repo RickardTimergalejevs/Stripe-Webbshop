@@ -2,6 +2,7 @@ import { useOrderContext } from "../../context/OrderContext"
 import { useEffect } from "react"
 import { formatDate, formatPrice } from "../../utils/helpers"
 import { useUserContext } from "../../context/UserContext"
+import "./ProfilePage.css"
 
 const ProfilePage = () => {
     const { getOrders, orders } = useOrderContext()
@@ -12,20 +13,26 @@ const ProfilePage = () => {
     }, [])
 
   return (
-    <div>
-        <h1>Welcome to your profile,</h1>
-        <div>
+    <main>
+        <div className="user-profile-wrapper">
+        <h1 className="user-profile-title">Welcome to your profile, {user?.username}</h1>
+        <h2>Your orders:</h2>
+        <div className="order-list">
             {orders && orders.map((order) => (
-                <div key={order.order_id}>
-                    <p>Order number: {order.order_id}</p>
-                    <p>Created: {formatDate(order.created)}</p>
+                <div key={order.order_id} className="order-card">
                     <div>
+                        <p>Order number: {order.order_id}</p>
+                        <p>Created: {formatDate(order.created)}</p>
+                    </div>
+                    <div className="order-product-details">
                         {order.products.map((item) => (
                             <div key={item.product_id}>
-                                <h2>{item.product}</h2>
-                                <img src={item.image} alt={item.product} />
-                                <p>Price: {formatPrice(item.price)}</p>
-                                <p>Quantity: {item.quantity}</p>
+                                <img src={item.image} alt={item.product} className="order-img" />
+                                <div className="order-card-details">
+                                    <h2>{item.product}</h2>
+                                    <p>Price: {formatPrice(item.price)}</p>
+                                    <p>Quantity: {item.quantity}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -33,7 +40,8 @@ const ProfilePage = () => {
                 </div>
             ))}
         </div>
-    </div>
+        </div>
+    </main>
   )
 }
 
