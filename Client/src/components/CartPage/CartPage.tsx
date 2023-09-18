@@ -1,4 +1,4 @@
-import { ICartItem, useCartContext } from "../../context/CartContext"
+import { useCartContext } from "../../context/CartContext"
 import { useUserContext } from "../../context/UserContext"
 import { formatPrice, totalPrice } from "../../utils/helpers"
 import "./CartPage.css"
@@ -29,7 +29,7 @@ const CartPage = () => {
   return (
     <div>
       <div className="cart-product-list">
-      {cartItems.map((item: ICartItem) => (
+      {cartItems.map((item) => (
         <div key={item.product.id} className="cart-product-card">
           <h1>{item.product.name}</h1>
           <img src={item.product.image} alt={item.product.name} />

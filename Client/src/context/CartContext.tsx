@@ -7,7 +7,17 @@ export interface ICartItem {
     quantity: number
 }
 
-const CartContext = createContext(null as any)
+interface ICartContext {
+    cartItems: ICartItem[],
+    setCartItems: React.Dispatch<React.SetStateAction<ICartItem[]>>,
+    addToCart: (product: IProduct, quantity: number) => void
+}
+
+const CartContext = createContext<ICartContext>({
+    cartItems: [],
+    setCartItems: () => {},
+    addToCart: (product: IProduct, quantity: number) => {}
+})
 
 export const useCartContext = () => useContext(CartContext)
 

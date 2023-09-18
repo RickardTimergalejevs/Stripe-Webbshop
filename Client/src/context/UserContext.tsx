@@ -18,7 +18,19 @@ interface IRegisterForm {
     password: string
 }
 
-const UserContext = createContext(null as any)
+interface IUserContext {
+    user: IUser | null,
+    login: (credentials: ILoginForm) => Promise<void>,
+    register: (registerData: IRegisterForm) => Promise<void>,
+    logout: () => Promise<void>
+}
+
+const UserContext = createContext<IUserContext>({
+    user: null,
+    login: async (credentials: ILoginForm) => {},
+    register: async (registerData: IRegisterForm) => {},
+    logout: async () => {}
+})
 
 export const useUserContext = () => useContext(UserContext)
 
