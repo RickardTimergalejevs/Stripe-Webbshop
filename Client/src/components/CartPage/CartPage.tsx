@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useCartContext } from "../../context/CartContext"
 import { useUserContext } from "../../context/UserContext"
 import { formatPrice, totalPrice } from "../../utils/helpers"
@@ -9,21 +10,27 @@ const CartPage = () => {
   const { user } = useUserContext()
 
   const handlePayment = async () => {
-    const response = await fetch("api/checkout/create-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ cartItems, user: user?.id })
-    })
-
-    if (!response.ok) {
-      return
+    try {
+      const response = await axios.post("api/checkout/create-session", {
+        cartItems,
+        user: user?.id
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+  
+      if (response.status === 200) {
+        const { url, sessionId } = response.data
+        localStorage.setItem("session-id", sessionId)
+        window.location = url
+      } else {
+        console.error("Failed to create session");
+      }
+      
+    } catch (error) {
+      console.error("Error creating session:", error);
     }
-
-    const { url, sessionId } = await response.json()
-    localStorage.setItem("session-id", sessionId)
-    window.location = url
   } 
 
   return (
