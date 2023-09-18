@@ -1,15 +1,15 @@
 .login-popup {
     position: absolute;
-    top: 20rem;
-    right: 10rem;
-    background-color: aqua;
-    height: 300px;
+    top: 8rem;
+    right: 3rem;
+    background-color: rgb(183, 160, 226);
+    height: 320px;
     width: 300px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: solid 10px rgb(255, 223, 119);
 }
 
 .login-popup > h1 {
@@ -17,8 +17,13 @@
 }
 
 .login-popup > p {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-popup > p:hover {
+    color: rgb(238, 228, 255);
 }
 
 .login-form, .register-form {
@@ -31,13 +36,29 @@
 .login-form input,
 .register-form input {
     border: none;
-    padding: 0.3rem;
+    padding: 0.6rem;
+    background-color: rgb(238, 228, 255);
+}
+
+.login-form input:focus,
+.register-form input:focus {
+    outline: none;
 }
 
 .login-form button,
 .register-form button {
+    padding: 0.3rem 0.8rem;
+    margin-top: 0.4rem;
     border: none;
-    padding: 0.3rem;
-    width: 5rem;
+    background-color: rgb(238, 228, 255);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
     cursor: pointer;
+    transition: 0.3s;
+    border-bottom: solid 5px rgb(255, 223, 119);
+}
+
+.login-form button:hover,
+.register-form button:hover {
+    background-color: rgb(183, 160, 226);
 }

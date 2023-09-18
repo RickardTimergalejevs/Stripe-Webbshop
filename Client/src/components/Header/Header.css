@@ -6,6 +6,7 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     font-family: 'Bebas Neue', sans-serif;
+    position: relative;
 }
 
 a { 
