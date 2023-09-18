@@ -1,0 +1,31 @@
+.confirmation-wrapper {
+    font-family: 'Bebas Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5rem;
+}
+
+.confirmation-title {
+    margin: 4rem 0;
+    font-size: 3rem;
+}
+
+.confirmation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.confirmation-order-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.confirmation-product-img {
+    width: 400px;
+    border-radius: 10px;
+}
