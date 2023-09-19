@@ -1,5 +1,6 @@
 import { useState, useContext, createContext, PropsWithChildren } from "react"
 import axios from "axios"
+import { useCartContext } from "./CartContext"
 
 interface IOrder {
     order_id: string,
@@ -47,6 +48,7 @@ const [isPaymentVerified, setIsPaymentVerified] = useState(false)
   const [orders, setOrders] = useState<IOrder[] | null> (null)
   console.log("order cart", order);
   console.log("User orders", orders);
+  const { setCartItems } = useCartContext()
 
   const verifyPayment = async () => {
     try {
@@ -67,6 +69,7 @@ const [isPaymentVerified, setIsPaymentVerified] = useState(false)
         setIsPaymentVerified(true)
         localStorage.removeItem("session-id")
         setOrder(data)
+        setCartItems([])
       } else {
         setIsPaymentVerified(false)
       }

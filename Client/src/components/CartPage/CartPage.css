@@ -61,3 +61,23 @@
     display: flex;
     gap: 20px;
 }
+
+.cart-increase-btn, 
+.cart-decrease-btn {
+    padding-bottom: 1rem;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(238, 228, 255);
+    color: rgb(183, 160, 226);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-increase-btn:hover,
+.cart-decrease-btn:hover {
+   color: black;
+}

@@ -10,13 +10,15 @@ export interface ICartItem {
 interface ICartContext {
     cartItems: ICartItem[],
     setCartItems: React.Dispatch<React.SetStateAction<ICartItem[]>>,
-    addToCart: (product: IProduct, quantity: number) => void
+    addToCart: (product: IProduct, quantity: number) => void,
+    removeFromCart: (product: IProduct, quantity: number) => void,
 }
 
 const CartContext = createContext<ICartContext>({
     cartItems: [],
     setCartItems: () => {},
-    addToCart: (product: IProduct, quantity: number) => {}
+    addToCart: (product: IProduct, quantity: number) => {},
+    removeFromCart: (product: IProduct, quantity: number) => {}
 })
 
 export const useCartContext = () => useContext(CartContext)
@@ -40,9 +42,24 @@ const CartProvider = ({ children }: PropsWithChildren) => {
         }
     }
 
+    const removeFromCart = (product: IProduct, quantity: number) => {
+        const existingCartItemIndex = cartItems.findIndex(item => product.id === item.product.id)
+
+        if (existingCartItemIndex !== -1) {
+            const updatedCartItems = [...cartItems]
+            updatedCartItems[existingCartItemIndex].quantity -= 1
+
+            if (updatedCartItems[existingCartItemIndex].quantity <= 0) {
+                updatedCartItems.splice(existingCartItemIndex, 1);
+            }
+
+            setCartItems(updatedCartItems)
+        } 
+    } 
+
     return (
         <div>
-            <CartContext.Provider value={{ cartItems, setCartItems, addToCart }}>
+            <CartContext.Provider value={{ cartItems, setCartItems, addToCart, removeFromCart }}>
                 {children}
             </CartContext.Provider>
         </div>

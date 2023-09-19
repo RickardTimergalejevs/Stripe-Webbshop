@@ -6,7 +6,7 @@ import "./CartPage.css"
 
 const CartPage = () => {
 
-  const { cartItems, setCartItems } = useCartContext()
+  const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
   const { user } = useUserContext()
 
   const handlePayment = async () => {
@@ -42,11 +42,11 @@ const CartPage = () => {
           <div key={item.product.id} className="cart-product-card">
             <h1>{item.product.name}</h1>
             <img src={item.product.image} alt={item.product.name} className="cart-product-card-img" />
-            <h2>{formatPrice(item.product.price)} kr</h2>
+            <h2>{formatPrice(item.product.price * item.quantity)} kr</h2>
             <p>Quantity: {item.quantity}</p>
             <div className="cart-product-btns">
-              <button>Deacrease</button>
-              <button>Increase</button>
+              <button className="cart-increase-btn" onClick={() => {addToCart(item.product, item.quantity)}}>+</button>
+              <button className="cart-decrease-btn" onClick={() => {removeFromCart(item.product, item.quantity)}}>-</button>
             </div>
           </div>
         ))}
