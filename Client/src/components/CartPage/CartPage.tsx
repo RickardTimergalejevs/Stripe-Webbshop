@@ -56,7 +56,7 @@ const CartPage = () => {
       <h2 className="cart-total-price">Total price: {totalPrice(cartItems)} kr</h2>
         {user ? <button className="checkout-btn" onClick={handlePayment}>To checkout</button> : <div>
           <h2>You must login to proceed!</h2>
-        </div> }
+        </div>}
       </div>
     </main>
   )

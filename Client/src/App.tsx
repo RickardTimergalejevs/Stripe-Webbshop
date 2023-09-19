@@ -2,7 +2,7 @@ import CartPage from './components/CartPage/CartPage'
 import ConfirmationPage from './components/ConfirmationPage/ConfirmationPage'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
-import { Route, Routes, Navigate } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import ProfilePage from './components/ProfilePage/ProfilePage'
 import { useUserContext } from './context/UserContext'
 

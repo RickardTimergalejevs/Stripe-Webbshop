@@ -3,6 +3,7 @@ import { useUserContext } from "../../context/UserContext"
 import { formatDate, formatPrice } from "../../utils/helpers"
 import { useOrderContext } from "../../context/OrderContext"
 import "./ConfirmationPage.css"
+import Loader from "../Loader/Loader"
 
 const ConfirmationPage = () => {
   const { verifyPayment, isPaymentVerified, order } = useOrderContext()
@@ -14,7 +15,7 @@ const ConfirmationPage = () => {
 
   return (
     <main>
-      {isPaymentVerified && user && order && (
+      {isPaymentVerified && user && order ? (
         <div className="confirmation-wrapper">
           <h1 className="confirmation-title">Thank you for your order, {user.username}!</h1>
           <div className="confirmation-details">
@@ -36,7 +37,9 @@ const ConfirmationPage = () => {
             <h2>Total order price: {formatPrice(order.order_total_price)} kr</h2>
           </div>
         </div>
-      )}
+      ) : (<div>
+        <h2><Loader /> </h2>
+      </div>)}
     </main>
   )
 }
