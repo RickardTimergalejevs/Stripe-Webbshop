@@ -37,6 +37,11 @@
     border-radius: 10px;
 }
 
+.cart-empty {
+    border-top: solid 5px rgb(255, 223, 119);
+    color: rgb(183, 160, 226);
+}
+
 .cart-total-price {
     margin-top: 4rem;
     margin-bottom: 1rem;

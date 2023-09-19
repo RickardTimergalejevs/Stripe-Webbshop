@@ -15,7 +15,7 @@ const Header = () => {
 
   const totalQuantity = cartItems.reduce((total: number, item: ICartItem ) => total + item.quantity, 0);
 
-  const handleClick = () => {
+  const handleLogout = () => {
     logout()
   }
 
@@ -39,8 +39,8 @@ const Header = () => {
           </Link>}
         </div>
         <div className="header-login" onClick={toggleLoginPopup}>
-          {!user ? <FaUserCircle onClick={toggleLoginPopup} className="header-login-icon" /> : <RiLogoutBoxRFill className="header-login-icon" /> }
-          {user ? <p onClick={handleClick}>Logout</p> : <p>Login</p>}
+          {!user ? <FaUserCircle onClick={toggleLoginPopup} className="header-login-icon" /> : <RiLogoutBoxRFill onClick={handleLogout} className="header-login-icon" /> }
+          {user ? <p onClick={handleLogout}>Logout</p> : <p>Login</p>}
         </div>
         <div className="header-cart">
         <Link to={"/cart"}>

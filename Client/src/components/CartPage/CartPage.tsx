@@ -37,7 +37,7 @@ const CartPage = () => {
     <main>
       <div className="cart-wrapper">
         <h1 className="cart-title">Cart</h1>
-        <div className="cart-product-list">
+        {cartItems.length >= 1 ? <div className="cart-product-list">
         {cartItems.map((item) => (
           <div key={item.product.id} className="cart-product-card">
             <h1>{item.product.name}</h1>
@@ -50,9 +50,13 @@ const CartPage = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> : <div>
+        <h1 className="cart-empty">Your cart is empty</h1>
+      </div> }
       <h2 className="cart-total-price">Total price: {totalPrice(cartItems)} kr</h2>
-        <button className="checkout-btn" onClick={handlePayment}>To checkout</button>
+        {user ? <button className="checkout-btn" onClick={handlePayment}>To checkout</button> : <div>
+          <h2>You must login to proceed!</h2>
+        </div> }
       </div>
     </main>
   )

@@ -330,5 +330,32 @@
       }
     ],
     "order_total_price": 2829500
+  },
+  {
+    "order_id": "cs_test_b1VIF5c8gdDLshVV8Bn5L7lU9bdhtkij1ZkTT06VEbCP37MOX45pHQHmre",
+    "created": 1695132963,
+    "customer": {
+      "customer_id": null,
+      "name": "Rick T"
+    },
+    "products": [
+      {
+        "product_id": "prod_OciXc1RQKFSeCc",
+        "product": "Motionscykel",
+        "quantity": 1,
+        "price": 369900,
+        "image": "https://files.stripe.com/links/MDB8YWNjdF8xTm8wTWJEVFhnZzlSNGw3fGZsX3Rlc3RfVTQzeUVyU0ZrY3hFUHZlVHhhWUJqWjh100joKLQNpf",
+        "total_price": 369900
+      },
+      {
+        "product_id": "prod_OciYicyajhcIlF",
+        "product": "Skivstångsset",
+        "quantity": 1,
+        "price": 89900,
+        "image": "https://files.stripe.com/links/MDB8YWNjdF8xTm8wTWJEVFhnZzlSNGw3fGZsX3Rlc3RfR0sydURLS0xETjhmeE9MQXdscFJhdjZ200gYaSRNk8",
+        "total_price": 89900
+      }
+    ],
+    "order_total_price": 459800
   }
 ]
