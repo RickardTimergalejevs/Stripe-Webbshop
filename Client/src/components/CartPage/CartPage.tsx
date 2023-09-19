@@ -54,9 +54,19 @@ const CartPage = () => {
         <h1 className="cart-empty">Your cart is empty</h1>
       </div> }
       <h2 className="cart-total-price">Total price: {totalPrice(cartItems)} kr</h2>
-        {user ? <button className="checkout-btn" onClick={handlePayment}>To checkout</button> : <div>
-          <h2>You must login to proceed!</h2>
-        </div>}
+      {user ? (
+            cartItems.length >= 1 ? (
+            <button className="checkout-btn" onClick={handlePayment}>To checkout</button>
+            ) : (
+            <div className="cart-errors">
+              <h2>Add product to continue!</h2>
+            </div>
+            )
+          ) : (
+            <div className="cart-errors">
+              <h2>You must login to proceed!</h2>
+            </div>
+          )}
       </div>
     </main>
   )

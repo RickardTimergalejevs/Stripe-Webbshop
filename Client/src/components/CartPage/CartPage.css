@@ -38,8 +38,10 @@
 }
 
 .cart-empty {
-    border-top: solid 5px rgb(255, 223, 119);
     color: rgb(183, 160, 226);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
 }
 
 .cart-total-price {
@@ -56,6 +58,11 @@
     cursor: pointer;
     border-bottom: solid 5px rgb(255, 223, 119);
     transition: 0.3s;
+}
+
+.checkout-btn.disabled {
+    cursor: not-allowed;
+    background-color: rgb(255, 228, 236);
 }
 
 .checkout-btn:hover {
@@ -85,4 +92,9 @@
 .cart-increase-btn:hover,
 .cart-decrease-btn:hover {
    color: black;
+}
+
+.cart-errors {
+    color: rgb(183, 160, 226);
+    border-bottom: solid 5px rgb(255, 223, 119);
 }
