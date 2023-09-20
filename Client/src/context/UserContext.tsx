@@ -20,6 +20,7 @@ export interface IRegisterForm {
 
 interface IUserContext {
     user: IUser | null,
+    error: string | null,
     login: (credentials: ILoginForm) => Promise<void>,
     register: (registerData: IRegisterForm) => Promise<void>,
     logout: () => Promise<void>
@@ -27,6 +28,7 @@ interface IUserContext {
 
 const UserContext = createContext<IUserContext>({
     user: null,
+    error: null,
     login: async (credentials: ILoginForm) => {},
     register: async (registerData: IRegisterForm) => {},
     logout: async () => {}
@@ -36,7 +38,10 @@ export const useUserContext = () => useContext(UserContext)
 
 const UserProvider = ({ children }: PropsWithChildren) => {
     const [user, setUser] = useState<IUser | null>(null)
+    const [error, setError] = useState<string | null>(null)
+    
     console.log(user);
+    console.log(error);
     
     const authorize = async () => {
         try {
@@ -73,11 +78,13 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             if (response.status === 200) {
                 setUser(response.data)
                 console.log("Login successful");
+                setError(null)
             } else {
                 throw new Error("Login failed with status: " + response.status);
             }
         } catch (error: any) {
             console.error("Login error:", error);
+            setError(error.response.data.message)
             throw new Error("Login failed: " + error.message);
         }
     }
@@ -100,10 +107,12 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 console.log(response.data);
                 console.log("Registration successful");
                 login({ username, password })
+                setError(null)
             } else {
                 throw new Error("Registration failed with status: " + response.status);
             }
         } catch (error: any) {
+            setError(error.response.data.message)
             throw new Error("Registration failed: " + error.message);
         }
     }
@@ -122,7 +131,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
     return (
         <div>
-            <UserContext.Provider value={{ login, logout, register, user }}>
+            <UserContext.Provider value={{ login, logout, register, user, error }}>
                 {children}
             </UserContext.Provider>
         </div>

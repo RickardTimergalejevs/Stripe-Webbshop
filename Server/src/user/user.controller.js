@@ -23,13 +23,13 @@ const register = async (req, res) => {
         //Reading users json
         const usersData = await fs.promises.readFile(usersFilePath, "utf8")
         if (!usersData) {
-            return res.status(500).json("Error reading user data");
+            return res.status(500).json({ message: "Error reading user data" });
         }
         const users = JSON.parse(usersData)
 
         //Check existed email
         if(users.some(user => user.email === email)) {
-            return res.status(404).json("Email already exists!")
+            return res.status(404).json({ message: "Email already exists!" })
         }
 
         //Create customer on stripe
@@ -57,7 +57,7 @@ const login = async (req, res) => {
         //Reading users json
         const usersData = await fs.promises.readFile(usersFilePath, "utf8")
         if (!usersData) {
-            return res.status(500).json("Error reading user data");
+            return res.status(500).json({ message: "Error reading user data" });
         }
         const users = JSON.parse(usersData)
 

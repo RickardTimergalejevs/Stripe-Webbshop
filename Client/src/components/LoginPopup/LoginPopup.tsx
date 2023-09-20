@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 const LoginPopup = () => {
     const [loginFormVisible, setLoginFormVisible] = useState(true)
 
-    const { login, register } = useUserContext()
+    const { login, register, error } = useUserContext()
 
     const loginSchema = yup.object({
       username: yup.string().required(),
@@ -37,6 +37,7 @@ const LoginPopup = () => {
         <h1>Welcome</h1>
         {loginFormVisible ? (
         <form onSubmit={loginHandleSubmit(handleLogin)} className="login-form">
+            <p className="validation-error">{error}</p>
             <input type="text" placeholder="Username" {...loginForm("username")}/>
             <p className="validation-error">{loginErrors.username?.message}</p>
             <input type="password" placeholder="Password" {...loginForm("password")}/>
@@ -45,9 +46,10 @@ const LoginPopup = () => {
         </form>
         ) : (
         <form onSubmit={registerHandleSubmit(handleRegister)} className="register-form">
+            <p className="validation-error">{error}</p>
             <input type="text" placeholder="Username" {...registerForm("username")}/>
             <p className="validation-error">{registerErrors.username?.message}</p>
-            <input type="text" placeholder="E-mail" {...registerForm("email")}/>
+            <input type="email" placeholder="E-mail" {...registerForm("email")}/>
             <p className="validation-error">{registerErrors.email?.message}</p>
             <input type="password" placeholder="Password" {...registerForm("password")}/>
             <p className="validation-error">{registerErrors.password?.message}</p>
