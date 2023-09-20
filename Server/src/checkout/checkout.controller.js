@@ -59,14 +59,17 @@ const verifyOrder = async (req, res) => {
                     quantity: item.quantity,
                     price: item.price.unit_amount,
                     image: productInfo.images[0],
+                    discount: item.amount_discount,
                     total_price: item.amount_total
                 };
             })),
+            order_amount_discount: session.total_details.amount_discount,
             order_total_price: session.amount_total
         }
 
         await saveOrder(order, sessionId)
         console.log(order);
+        console.log(session);
         res.status(200).json({ verified: true, data: order })
     } catch (error) {
         console.error(error.message)

@@ -16,9 +16,11 @@ interface IOrder {
         image: string,
         price: number,
         quantity: number,
+        discount: number,
         total_price: number
       }
     ],
+    order_amount_discount: number,
     order_total_price: number
 }
 

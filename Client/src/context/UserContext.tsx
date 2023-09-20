@@ -29,8 +29,8 @@ interface IUserContext {
 const UserContext = createContext<IUserContext>({
     user: null,
     error: null,
-    login: async (credentials: ILoginForm) => {},
-    register: async (registerData: IRegisterForm) => {},
+    login: async () => {},
+    register: async () => {},
     logout: async () => {}
 })
 

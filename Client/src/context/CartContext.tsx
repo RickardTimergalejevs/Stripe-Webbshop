@@ -17,8 +17,8 @@ interface ICartContext {
 const CartContext = createContext<ICartContext>({
     cartItems: [],
     setCartItems: () => {},
-    addToCart: (product: IProduct, quantity: number) => {},
-    removeFromCart: (product: IProduct, quantity: number) => {}
+    addToCart: () => {},
+    removeFromCart: () => {}
 })
 
 export const useCartContext = () => useContext(CartContext)

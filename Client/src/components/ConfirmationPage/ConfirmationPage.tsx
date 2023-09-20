@@ -30,11 +30,15 @@ const ConfirmationPage = () => {
                   <h2>{item.product}</h2>
                   <img src={item.image} alt={item.product} className="confirmation-product-img"/>
                   <p>Price: {formatPrice(item.total_price)} kr</p>
+                  {item.discount !== 0 && <p className="confirmation-product-discount">-{formatPrice(item.discount)} kr</p>}
                   <p>Quantity: {item.quantity}</p>
                 </div>
               ))}
             </div>
-            <h2>Total order price: {formatPrice(order.order_total_price)} kr</h2>
+            <div>
+              {order.order_amount_discount !== 0 && <p>Savings: <span className="confirmation-product-discount">{formatPrice(order.order_amount_discount)} kr</span></p>}
+              <h2>Total order price: {formatPrice(order.order_total_price)} kr</h2>
+            </div>
           </div>
         </div>
       ) : (<div>
