@@ -7,12 +7,12 @@ interface IUser {
     email: string,
 }
 
-interface ILoginForm {
+export interface ILoginForm {
     username: string,
     password: string
 }
 
-interface IRegisterForm {
+export interface IRegisterForm {
     email: string,
     username: string,
     password: string

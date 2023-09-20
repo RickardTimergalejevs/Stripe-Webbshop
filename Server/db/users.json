@@ -22,5 +22,17 @@
     "username": "Kalle",
     "password": "$2b$10$pRGMuhaRoocvIG0McqPT5.R2REqHNf.l1MCWLO3cStLCZI4CrqT82",
     "id": "cus_OflVonaXES4gkU"
+  },
+  {
+    "email": "user1@user.se",
+    "username": "Olle",
+    "password": "$2b$10$QhtSFFEAGqoC4gwYhAzPROU.gxDWepk9LhIHivnPZGv96vbr.Z7GO",
+    "id": "cus_OfmCjSG84cPoIC"
+  },
+  {
+    "email": "user2@user.se",
+    "username": "Sasha",
+    "password": "$2b$10$mgNLbEJGcJZTprV3vfe43eWuKIftaZabyE78Mi8xfI8MiOq8FkUaW",
+    "id": "cus_OfmcHwwEU1dhhQ"
   }
 ]

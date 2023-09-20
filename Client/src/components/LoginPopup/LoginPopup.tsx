@@ -1,61 +1,58 @@
 import { useState } from "react"
 import "./LoginPopup.css"
-import { useUserContext } from "../../context/UserContext"
+import { ILoginForm, IRegisterForm, useUserContext } from "../../context/UserContext"
+import { useForm } from "react-hook-form"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
 
 const LoginPopup = () => {
     const [loginFormVisible, setLoginFormVisible] = useState(true)
-    const [loginData, setLoginData] = useState({
-      username: "",
-      password: ""
-    })
-    const [registerData, setRegisterData] = useState({
-      email: "",
-      username: "",
-      password: ""
-    })
 
     const { login, register } = useUserContext()
+
+    const loginSchema = yup.object({
+      username: yup.string().required(),
+      password: yup.string().required()
+    })
+
+    const registerSchema = yup.object({
+      email: yup.string().email().required(),
+      username: yup.string().required(),
+      password: yup.string().required(),
+    })
+
+    const { register: loginForm, formState: { errors: loginErrors }, handleSubmit: loginHandleSubmit } = useForm({ resolver: yupResolver(loginSchema)})
+    const { register: registerForm, formState: { errors: registerErrors }, handleSubmit: registerHandleSubmit } = useForm({ resolver: yupResolver(registerSchema)})
     
-    const handleInputLoginFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target
-      setLoginData({
-        ...loginData,
-        [name]: value
-      })
+    const handleLogin = async (data: ILoginForm) => {
+      await login(data)
     }
 
-    const handleInputRegisterFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target
-      setRegisterData({
-        ...registerData,
-        [name]: value
-      })
-    }
-
-    const handleLogin = async () => {
-      await login(loginData)
-    }
-
-    const handleRegister = async () => {
-      await register(registerData)
+    const handleRegister = async (data: IRegisterForm) => {
+      await register(data)
     }
 
   return (
     <div className="login-popup">
         <h1>Welcome</h1>
         {loginFormVisible ? (
-        <div className="login-form">
-            <input type="text" placeholder="Username" name="username" onChange={handleInputLoginFormChange}/>
-            <input type="password" placeholder="Password" name="password" onChange={handleInputLoginFormChange}/>
-            <button onClick={handleLogin}>Login</button>
-        </div>
+        <form onSubmit={loginHandleSubmit(handleLogin)} className="login-form">
+            <input type="text" placeholder="Username" {...loginForm("username")}/>
+            <p className="validation-error">{loginErrors.username?.message}</p>
+            <input type="password" placeholder="Password" {...loginForm("password")}/>
+            <p className="validation-error">{loginErrors.password?.message}</p>
+            <button type="submit">Login</button>
+        </form>
         ) : (
-        <div className="register-form">
-            <input type="text" placeholder="E-mail" name="email" onChange={handleInputRegisterFormChange}/>
-            <input type="text" placeholder="Username" name="username" onChange={handleInputRegisterFormChange}/>
-            <input type="password" placeholder="Password" name="password" onChange={handleInputRegisterFormChange}/>
-            <button onClick={handleRegister}>Register</button>
-        </div>
+        <form onSubmit={registerHandleSubmit(handleRegister)} className="register-form">
+            <input type="text" placeholder="Username" {...registerForm("username")}/>
+            <p className="validation-error">{registerErrors.username?.message}</p>
+            <input type="text" placeholder="E-mail" {...registerForm("email")}/>
+            <p className="validation-error">{registerErrors.email?.message}</p>
+            <input type="password" placeholder="Password" {...registerForm("password")}/>
+            <p className="validation-error">{registerErrors.password?.message}</p>
+            <button type="submit">Register</button>
+        </form>
         )}
         <p onClick={() => setLoginFormVisible(!loginFormVisible)}>{loginFormVisible ? "Register" : "Back to Login"}</p>
     </div>

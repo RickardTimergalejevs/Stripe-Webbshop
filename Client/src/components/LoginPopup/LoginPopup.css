@@ -3,7 +3,7 @@
     top: 8rem;
     right: 3rem;
     background-color: rgb(183, 160, 226);
-    height: 320px;
+    height: 400px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -61,6 +61,11 @@
 .login-form button:hover,
 .register-form button:hover {
     background-color: rgb(183, 160, 226);
+}
+
+.validation-error {
+    font-size: 1rem;
+    color: rgb(134, 15, 15);
 }
 
 @media (max-width: 811px) {
