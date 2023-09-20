@@ -99,6 +99,7 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             if (response.status === 201) {
                 console.log(response.data);
                 console.log("Registration successful");
+                login({ username, password })
             } else {
                 throw new Error("Registration failed with status: " + response.status);
             }

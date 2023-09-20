@@ -16,5 +16,11 @@
     "username": "Max",
     "password": "$2b$10$2p0EYXvR3InFMl66q3PMk.sgMVHDfMgl.QDZSNkn1P59kFUTOX92C",
     "id": "cus_Od8urMqqkMdUti"
+  },
+  {
+    "email": "user@user.se",
+    "username": "Kalle",
+    "password": "$2b$10$pRGMuhaRoocvIG0McqPT5.R2REqHNf.l1MCWLO3cStLCZI4CrqT82",
+    "id": "cus_OflVonaXES4gkU"
   }
 ]

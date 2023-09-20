@@ -430,5 +430,24 @@
       }
     ],
     "order_total_price": 71920
+  },
+  {
+    "order_id": "cs_test_b1j2lrwXa8FZKmZXitMyO4xG2xuzFBQWYdJT1JiF1d5zZVRUD6DYKcAXvN",
+    "created": 1695137908,
+    "customer": {
+      "customer_id": "cus_Ocl1Cnb08f47j9",
+      "name": "Andre"
+    },
+    "products": [
+      {
+        "product_id": "prod_OciYicyajhcIlF",
+        "product": "Skivstångsset",
+        "quantity": 3,
+        "price": 89900,
+        "image": "https://files.stripe.com/links/MDB8YWNjdF8xTm8wTWJEVFhnZzlSNGw3fGZsX3Rlc3RfR0sydURLS0xETjhmeE9MQXdscFJhdjZ200gYaSRNk8",
+        "total_price": 269700
+      }
+    ],
+    "order_total_price": 269700
   }
 ]

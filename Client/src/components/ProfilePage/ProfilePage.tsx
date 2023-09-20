@@ -16,7 +16,7 @@ const ProfilePage = () => {
     <main>
         <div className="user-profile-wrapper">
         <h1 className="user-profile-title">Welcome to your profile, {user?.username}</h1>
-        <h2>Your orders:</h2>
+        {orders && orders.length >= 1 ? <h2>Your orders:</h2> : <h2 className="no-order-list">You don't have orders yet!</h2> }
         <div className="order-list">
             {orders && orders.map((order) => (
                 <div key={order.order_id} className="order-card">

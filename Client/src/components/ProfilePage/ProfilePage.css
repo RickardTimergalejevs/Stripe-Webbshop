@@ -39,3 +39,8 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.no-order-list {
+    color: rgb(183, 160, 226);
+    border-bottom: solid 5px rgb(255, 223, 119);
+}
