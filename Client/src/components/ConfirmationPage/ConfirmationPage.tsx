@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useUserContext } from "../../context/UserContext"
 import { formatDate, formatPrice } from "../../utils/helpers"
 import { useOrderContext } from "../../context/OrderContext"
@@ -9,8 +9,12 @@ const ConfirmationPage = () => {
   const { verifyPayment, isPaymentVerified, order } = useOrderContext()
   const { user } = useUserContext()
 
+  const isFirstRender = useRef(true)
   useEffect(() => {
-    verifyPayment()
+    if (isFirstRender.current) {
+      verifyPayment()
+      isFirstRender.current = false
+  }
   }, [])
 
   return (

@@ -1,5 +1,5 @@
 import { useOrderContext } from "../../context/OrderContext"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { formatDate, formatPrice } from "../../utils/helpers"
 import { useUserContext } from "../../context/UserContext"
 import "./ProfilePage.css"
@@ -8,8 +8,12 @@ const ProfilePage = () => {
     const { getOrders, orders } = useOrderContext()
     const { user } = useUserContext()
 
+    const isFirstRender = useRef(true)
     useEffect(() => {
-        getOrders()
+        if (isFirstRender.current) {
+            getOrders()
+            isFirstRender.current = false
+        }
     }, [])
 
   return (
@@ -30,13 +34,17 @@ const ProfilePage = () => {
                                 <img src={item.image} alt={item.product} className="order-img" />
                                 <div className="order-card-details">
                                     <h2>{item.product}</h2>
-                                    <p>Price: {formatPrice(item.price)}</p>
+                                    <p>Price: {formatPrice(item.total_price)}</p>
+                                    {item.discount !== 0 && <p className="order-product-discount">-{formatPrice(item.discount)} kr</p>}
                                     <p>Quantity: {item.quantity}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <h2>Total order price: {formatPrice(order.order_total_price)} kr</h2>
+                    <div>
+                        {order.order_amount_discount !== 0 && <p>Savings: <span className="order-product-discount">{formatPrice(order.order_amount_discount)} kr</span></p>}
+                        <h2>Total order price: {formatPrice(order.order_total_price)} kr</h2>
+                    </div>
                 </div>
             ))}
         </div>
