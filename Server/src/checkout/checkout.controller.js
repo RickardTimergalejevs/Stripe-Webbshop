@@ -27,8 +27,7 @@ const createCheckoutSession = async (req, res) => {
 
         res.status(200).json({ url: session.url, sessionId: session.id })
     } catch (error) {
-        console.log(error.message);
-        res.status(400).json("Det gick inte bra...")
+        res.status(400).json({ error: "Create session failed", message: error.message })
     }
 }
 
@@ -68,11 +67,8 @@ const verifyOrder = async (req, res) => {
         }
 
         await saveOrder(order, sessionId)
-        console.log(order);
-        console.log(session);
         res.status(200).json({ verified: true, data: order })
     } catch (error) {
-        console.error(error.message)
         res.status(400).json({ error: "Payment verification failed", message: error.message });
     }
 }
@@ -81,12 +77,12 @@ const saveOrder = async (order, sessionId) => {
     try {
         const ordersData = await fs.promises.readFile(ordersFilePath, "utf8")
         if (!ordersData) {
-            return res.status(500).json("Error reading orders data");
+            throw new Error('Error reading orders data');
         }
         const orders = JSON.parse(ordersData)
 
         if (orders.some(order => order.order_id === sessionId)) {
-            return res.status(404).json("Order already exists!")
+            throw new Error('Order already exists!');
         };
 
         orders.push(order)

@@ -35,7 +35,6 @@ const ProductProvider = ({ children }: PropsWithChildren) => {
         getAllProducts()
     }, [])
 
-    console.log(products);
     return (
         <div>
             <ProductContext.Provider value={{ products }}>

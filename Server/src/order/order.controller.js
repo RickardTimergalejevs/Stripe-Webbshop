@@ -10,7 +10,7 @@ const getOrders = async (req, res) => {
 
         const ordersData = await fs.promises.readFile(ordersFilePath, "utf8")
         if (!ordersData) {
-            return res.status(500).json("Error reading orders data");
+            return res.status(500).json({ message: "Error reading orders data" });
         }
         const orders = JSON.parse(ordersData)
 

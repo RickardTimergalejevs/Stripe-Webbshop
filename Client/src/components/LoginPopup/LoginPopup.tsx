@@ -6,7 +6,7 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 
 const LoginPopup = () => {
-    const [loginFormVisible, setLoginFormVisible] = useState(true)
+    const [isLoginFormVisible, setIsLoginFormVisible] = useState(true)
 
     const { login, register, error } = useUserContext()
 
@@ -35,7 +35,7 @@ const LoginPopup = () => {
   return (
     <div className="login-popup">
         <h1>Welcome</h1>
-        {loginFormVisible ? (
+        {isLoginFormVisible ? (
         <form onSubmit={loginHandleSubmit(handleLogin)} className="login-form">
             <p className="validation-error">{error}</p>
             <input type="text" placeholder="Username" {...loginForm("username")}/>
@@ -56,7 +56,7 @@ const LoginPopup = () => {
             <button type="submit">Register</button>
         </form>
         )}
-        <p onClick={() => setLoginFormVisible(!loginFormVisible)}>{loginFormVisible ? "Register" : "Back to Login"}</p>
+        <p onClick={() => setIsLoginFormVisible(!isLoginFormVisible)}>{isLoginFormVisible ? "Register" : "Back to Login"}</p>
     </div>
   )
 }

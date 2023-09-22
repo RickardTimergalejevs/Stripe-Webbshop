@@ -11,7 +11,7 @@ import { ICartItem, useCartContext } from "../../context/CartContext"
 const Header = () => {
   const { user, logout } = useUserContext()
   const { cartItems } = useCartContext()
-  const [loginPopupOpen, setLoginPopupOpen] = useState(false)
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
 
   const totalQuantity = cartItems.reduce((total: number, item: ICartItem ) => total + item.quantity, 0);
 
@@ -20,7 +20,7 @@ const Header = () => {
   }
 
   const toggleLoginPopup = () => {
-    setLoginPopupOpen(!loginPopupOpen);
+    setIsLoginPopupOpen(!isLoginPopupOpen);
   };
 
   return (
@@ -28,7 +28,7 @@ const Header = () => {
       <Link to={"/"}>
         <h1 className="title">GYMSHOP</h1>
       </Link>
-      {!user && loginPopupOpen && (
+      {!user && isLoginPopupOpen && (
         <LoginPopup />
       )}
       <div className="header-icons">

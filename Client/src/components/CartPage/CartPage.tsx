@@ -6,7 +6,7 @@ import "./CartPage.css"
 
 const CartPage = () => {
 
-  const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
+  const { cartItems, addToCart, removeFromCart } = useCartContext()
   const { user } = useUserContext()
 
   const handlePayment = async () => {

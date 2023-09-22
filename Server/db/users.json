@@ -1,44 +1,8 @@
 [
   {
-    "email": "test2@test.com",
-    "username": "Andre",
-    "password": "$2b$10$Yw3iNABYWPEJv5LR8fb4Suf8sbWwnwNL1LC.RojnDL42q8SuBwLfa",
-    "id": "cus_Ocl1Cnb08f47j9"
-  },
-  {
-    "email": "test@test.se",
-    "username": "Gregory",
-    "password": "$2b$10$FLmk15s7vAwpPT2.xLL6Gu6ZdKcJnx7tLjqy5Tg2dr/PwGpivIecC",
-    "id": "cus_Od7buafHaKq8up"
-  },
-  {
-    "email": "max39@test.com",
-    "username": "Max",
-    "password": "$2b$10$2p0EYXvR3InFMl66q3PMk.sgMVHDfMgl.QDZSNkn1P59kFUTOX92C",
-    "id": "cus_Od8urMqqkMdUti"
-  },
-  {
     "email": "user@user.se",
-    "username": "Kalle",
-    "password": "$2b$10$pRGMuhaRoocvIG0McqPT5.R2REqHNf.l1MCWLO3cStLCZI4CrqT82",
-    "id": "cus_OflVonaXES4gkU"
-  },
-  {
-    "email": "user1@user.se",
-    "username": "Olle",
-    "password": "$2b$10$QhtSFFEAGqoC4gwYhAzPROU.gxDWepk9LhIHivnPZGv96vbr.Z7GO",
-    "id": "cus_OfmCjSG84cPoIC"
-  },
-  {
-    "email": "user2@user.se",
-    "username": "Sasha",
-    "password": "$2b$10$mgNLbEJGcJZTprV3vfe43eWuKIftaZabyE78Mi8xfI8MiOq8FkUaW",
-    "id": "cus_OfmcHwwEU1dhhQ"
-  },
-  {
-    "email": "user3@user.se",
-    "username": "Anton",
-    "password": "$2b$10$0ld5qq97jYxvid8rb/CCGew1bVfyrj1Qukc54Slk.707kGMLt6HoK",
-    "id": "cus_OgVp7obNGZMUyV"
+    "username": "Andre",
+    "password": "$2b$10$huA32i.aD95aaAa9mUvTvuKh00sFMxzDEj8yUveGDcm6XXEZBFssS",
+    "id": "cus_OgXDYcpa9pBNfJ"
   }
 ]

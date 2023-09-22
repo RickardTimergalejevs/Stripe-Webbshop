@@ -48,8 +48,6 @@ const OrderProvider = ({ children }: PropsWithChildren) => {
 const [isPaymentVerified, setIsPaymentVerified] = useState(false)
   const [order, setOrder] = useState<IOrder | null>(null)
   const [orders, setOrders] = useState<IOrder[] | null> (null)
-  console.log("order cart", order);
-  console.log("User orders", orders);
   const { setCartItems } = useCartContext()
 
   const verifyPayment = async () => {

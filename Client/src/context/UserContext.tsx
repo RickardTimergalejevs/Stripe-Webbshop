@@ -39,10 +39,7 @@ export const useUserContext = () => useContext(UserContext)
 const UserProvider = ({ children }: PropsWithChildren) => {
     const [user, setUser] = useState<IUser | null>(null)
     const [error, setError] = useState<string | null>(null)
-    
-    console.log(user);
-    console.log(error);
-    
+
     const authorize = async () => {
         try {
             const response = await axios.get("api/users/authorize", {
@@ -77,7 +74,6 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
             if (response.status === 200) {
                 setUser(response.data)
-                console.log("Login successful");
                 setError(null)
             } else {
                 throw new Error("Login failed with status: " + response.status);
@@ -104,8 +100,6 @@ const UserProvider = ({ children }: PropsWithChildren) => {
             })
 
             if (response.status === 201) {
-                console.log(response.data);
-                console.log("Registration successful");
                 login({ username, password })
                 setError(null)
             } else {
@@ -123,7 +117,6 @@ const UserProvider = ({ children }: PropsWithChildren) => {
                 withCredentials: true
             })
             setUser(null)
-            console.log("Logout successful!");
         } catch (error: any) {
             throw new Error("Logout failed: " + error.message);
         }
