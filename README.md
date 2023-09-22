@@ -3,7 +3,7 @@
 Detta projekt är en onlinebutik byggd med en Node.js/Express-backend och en TypeScript/React.js-frontend tillsammans med Stripe som betalningsmetod.
 
 På denna webbplats kan vi se en lista över produkter som skapades och hanteras med hjälp av Stripe. Vi kan registrera en användare som kommer att skrivas in i Stripe och users.json filen, lösenordet krypteras under registreringen. Vi kan också logga in med användarnamn och lösenord, auktorisering spåras med hjälp av cookies. För att göra en beställning måste vi lägga till produkter i varukorg och klicka på kassaknappen, sidan kommer att omdirigeras till Stripe Checkout. Efter en lyckad begäran skapas beställningen i Stripe och orders.json filen.
-För att få rabatt i checkout kan du ange koden: `GYM23`
+För att få rabatt i checkout kan du skapa den i Stripe och ange koden: `GYM23`
 
 ## Ställ in och kör projektet
 
