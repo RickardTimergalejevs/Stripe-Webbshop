@@ -118,5 +118,35 @@
     ],
     "order_amount_discount": 0,
     "order_total_price": 89900
+  },
+  {
+    "order_id": "cs_test_b1bvVi5CDaIAWIiaEkVp8aQ9QEs4AAjuTAzdRmQagszEl0HYcH7d7SjP10",
+    "created": 1695387028,
+    "customer": {
+      "customer_id": "cus_OgVp7obNGZMUyV",
+      "name": "Anton"
+    },
+    "products": [
+      {
+        "product_id": "prod_OciZQA5j5dQKGe",
+        "product": "Titan Life Treadmill T63",
+        "quantity": 2,
+        "price": 999900,
+        "image": "https://files.stripe.com/links/MDB8YWNjdF8xTm8wTWJEVFhnZzlSNGw3fGZsX3Rlc3RfdG5Dd29EWjBySnRKSXpKVnhRajR4VUUw00AmGqkaWZ",
+        "discount": 399960,
+        "total_price": 1599840
+      },
+      {
+        "product_id": "prod_OciYicyajhcIlF",
+        "product": "Skivstångsset",
+        "quantity": 1,
+        "price": 89900,
+        "image": "https://files.stripe.com/links/MDB8YWNjdF8xTm8wTWJEVFhnZzlSNGw3fGZsX3Rlc3RfR0sydURLS0xETjhmeE9MQXdscFJhdjZ200gYaSRNk8",
+        "discount": 17980,
+        "total_price": 71920
+      }
+    ],
+    "order_amount_discount": 417940,
+    "order_total_price": 1671760
   }
 ]

@@ -34,5 +34,11 @@
     "username": "Sasha",
     "password": "$2b$10$mgNLbEJGcJZTprV3vfe43eWuKIftaZabyE78Mi8xfI8MiOq8FkUaW",
     "id": "cus_OfmcHwwEU1dhhQ"
+  },
+  {
+    "email": "user3@user.se",
+    "username": "Anton",
+    "password": "$2b$10$0ld5qq97jYxvid8rb/CCGew1bVfyrj1Qukc54Slk.707kGMLt6HoK",
+    "id": "cus_OgVp7obNGZMUyV"
   }
 ]
