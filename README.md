@@ -65,3 +65,5 @@ För att få rabatt i checkout kan du ange koden: `GYM23`
 3. Man skall som inloggad kunna se sina lagda ordrar.
 4. Samtliga placerade ordrar skall sparas till en lista i en JSON-fil.
 5. Ordern får inte under några omständigheter läggas utan genomförd betalning! (dvs. Spara aldrig ett orderobjekt såvida ni inte fått bekräftelse tillbaka ifrån stripe att betalningen gått igenom)
+
+GitHub repo - `https://github.com/RickardTimergalejevs/Stripe-Webbshop`
